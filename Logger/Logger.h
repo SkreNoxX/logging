@@ -26,23 +26,30 @@ public:
 	Level getLevel() const { return level; }
 
 	void printEndlessLogger() { // доделать
+		SYSTEMTIME sysTime;
+		GetLocalTime(&sysTime);
 		srand((unsigned)time(0));
 		while (true) {
 			switch (rand() % (level + 1)) {
 				case 0:
-					cout << "TRACE\n";
+					cout << sysTime.wYear << "-" << sysTime.wMonth << "-" << sysTime.wDay
+						<< " " << sysTime.wHour << ":" << sysTime.wMinute << ":" << sysTime.wSecond << " | " << "TRACE -> " << "Endless logger" << endl;
 					break;
 				case 1:
-					cout << "DEBUG\n";
+					cout << sysTime.wYear << "-" << sysTime.wMonth << "-" << sysTime.wDay
+						<< " " << sysTime.wHour << ":" << sysTime.wMinute << ":" << sysTime.wSecond << " | " << "DEBUG -> " << "Endless logger" << endl;
 					break;
 				case 2:
-					cout << "INFO\n";
+					cout << sysTime.wYear << "-" << sysTime.wMonth << "-" << sysTime.wDay
+						<< " " << sysTime.wHour << ":" << sysTime.wMinute << ":" << sysTime.wSecond << " | " << "INFO -> " << "Endless logger" << endl;
 					break;
 				case 3:
-					cout << "WARNING\n";
+					cout << sysTime.wYear << "-" << sysTime.wMonth << "-" << sysTime.wDay
+						<< " " << sysTime.wHour << ":" << sysTime.wMinute << ":" << sysTime.wSecond << " | " << "WARNING -> " << "Endless logger" << endl;
 					break;
 				case 4:
-					cout << "ERROR\n";
+					cout << sysTime.wYear << "-" << sysTime.wMonth << "-" << sysTime.wDay
+						<< " " << sysTime.wHour << ":" << sysTime.wMinute << ":" << sysTime.wSecond << " | " << "ERROR -> " << "Endless logger" << endl;
 					break;
 			}
 		}
